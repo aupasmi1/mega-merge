@@ -1,6 +1,6 @@
 # Mega Merge
 
-This is a command line Java application that will merge two sets catalog files in CSV format to produce a single consolidated catalog CSV file 
+This is a command line Java application that will merge two sets of catalog files in CSV format to produce a single consolidated catalog CSV file 
 
 ## Description
 
@@ -12,7 +12,7 @@ suppliers. For each group the program will create a list of SKU (products) with 
 
 ## Requirements
 
-- Implemented and tested using Java 16 in a Java 8 compatibility mode
+- Implemented and tested using Java 16 in a Java 11 compatibility mode
 
 - Tests require JUnit5
 
