@@ -4,6 +4,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Implementation class for the imported products
+ *
+ */
 public class Sku {
 
 	private String id;

@@ -35,7 +35,7 @@ public class MegaMergeTest {
 	}
 	
 	@Test
-	public void testFail() {
+	public void testMergeFail() {
 		Merger merger = new MegaMerge();
 		assertThrows(MergeException.class, () -> merger.merge(OUTPUT_FILE_FOLDER));
 	}

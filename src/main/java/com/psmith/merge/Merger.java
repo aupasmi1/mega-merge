@@ -2,10 +2,16 @@ package com.psmith.merge;
 
 import com.psmith.merge.exception.MergeException;
 
+/**
+ * 
+ * Merger interface to be implemented by implementations of the
+ * Merger.
+ *
+ */
 public interface Merger {
 	
-	public void mergeWrite(String input, String output) throws MergeException;
+	void mergeWrite(String input, String output) throws MergeException;
 	
-	public String merge(String input) throws MergeException;
+	String merge(String input) throws MergeException;
 
 }

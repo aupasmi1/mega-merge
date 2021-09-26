@@ -1,5 +1,7 @@
 package com.psmith.merge;
 
+import static com.psmith.merge.Messages.*;
+
 import java.io.FileReader;
 import java.io.StringWriter;
 import java.io.Writer;
@@ -24,11 +26,27 @@ public class MegaMerge implements Merger {
 	final String catalogFile = "catalog";
 	final String barcodesFile = "barcodes";
 	
+	/**
+	 * Operation to merge two groups of files and write the output
+	 * to the specified file
+	 * 
+	 * @param input The fully qualified path to the input folder
+	 * @param output The fully qualified path to the output file
+	 * @throws MergeException
+	 */
 	@Override
 	public void mergeWrite(String input, String output) throws MergeException {
 		writeFile(output, mergeInternal(input));
 	}
 
+	/**
+	 * Operation to merge two groups of files and write the output
+	 * to a String
+	 * 
+	 * @param input The fully qualified path to the input folder
+	 * @return A string containing the merged content
+	 * @throws MergeException
+	 */
 	@Override
 	public String merge(String input) throws MergeException {
 		return writeString(mergeInternal(input));
@@ -70,7 +88,7 @@ public class MegaMerge implements Merger {
 			}
 			
 		} catch (Exception e) {
-			throw new MergeException("Error loading catalog file ", e);
+			throw new MergeException(CSV_CATALOG_LOAD_ERROR_MSG, e);
 		}
 	}
 
@@ -83,7 +101,7 @@ public class MegaMerge implements Merger {
 			}
 			
 		} catch (Exception e) {
-			throw new MergeException("Error loading barcodes file ", e);
+			throw new MergeException(CSV_BARCODES_LOAD_ERROR_MSG, e);
 		}
 	}
 	
@@ -96,7 +114,7 @@ public class MegaMerge implements Merger {
 			extracted(results, csvWriter);
 			
 		} catch (Exception e) {
-			throw new MergeException("Error writing CSV file", e);
+			throw new MergeException(CSV_FILE_WRITE_ERROR_MSG, e);
 		}
 	}
 	
@@ -109,7 +127,7 @@ public class MegaMerge implements Merger {
 			extracted(results, csvWriter);
 			return writer.toString();
 		} catch (Exception e) {
-			throw new MergeException("Error writing CSV file", e);
+			throw new MergeException(CSV_FILE_WRITE_ERROR_MSG, e);
 		}
 	}
 
